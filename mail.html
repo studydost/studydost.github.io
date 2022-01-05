@@ -1,0 +1,18 @@
+<?php
+//get data from form  
+$name = $_POST['name'];
+$email= $_POST['email'];
+$message= $_POST['message'];
+$to = "udits2004@mail.com";
+$subject = "Mail From StudyDost";
+$message = "Dear". $name. "\r\n" "Thank you for contacting us. We will get back to you shortly."
+$txt ="Name = ". $name . "\r\n  Email = " . $email . "\r\n Message =" . $message;
+$headers = "From: ". $to; 
+$headers2 = "From: ". $email;
+$result = mail($email, $subject, $message, $headers)
+$result2 = mail($to, $txt, $headers2)
+if ($result2) {
+    echo '<script type="text/javascript">alert("Message Sent. Thank You. We will contact you shortly.") </script>';
+}else { '<script type="text/javascript">alert(Submission  Failed. Please try again.") </script>';
+}
+
